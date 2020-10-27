@@ -40,3 +40,69 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered posts/show.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 27ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Title goes here"], ["description", "some description"], ["created_at", "2020-10-27 17:15:40.174828"], ["updated_at", "2020-10-27 17:15:40.174828"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2020-10-27 13:19:27 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/juliazolotarev/.rvm/gems/ruby-2.6.1/gems/railties-5.0.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/juliazolotarev/.rvm/gems/ruby-2.6.1/gems/railties-5.0.7.2/lib/rails/templates/rails/welcome/index.html.erb (4.5ms)
+Completed 200 OK in 19ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-10-27 13:19:32 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 400ms (Views: 395.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/posts" for ::1 at 2020-10-27 13:19:39 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"36pOmAZzdwaVk9wV5yQtfAaYovQEzTkPpL+rT5YMl4/N0bUSvDXJP5vD1QMr/nTWjl4tJs2G9AR3Z92H6F8O1w==", "title"=>"harry potter", "description"=>"some stuff", "commit"=>"Submit Post"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "harry potter"], ["description", "some stuff"], ["created_at", "2020-10-27 17:19:39.785827"], ["updated_at", "2020-10-27 17:19:39.785827"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 19ms (ActiveRecord: 1.1ms)
+
+
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2020-10-27 13:22:18 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/juliazolotarev/.rvm/gems/ruby-2.6.1/gems/railties-5.0.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/juliazolotarev/.rvm/gems/ruby-2.6.1/gems/railties-5.0.7.2/lib/rails/templates/rails/welcome/index.html.erb (3.3ms)
+Completed 200 OK in 13ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-10-27 13:22:23 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 218ms (Views: 212.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/posts" for ::1 at 2020-10-27 13:22:32 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FWQDZprVbuwAma0eNoAz+hSjz7+JGW+TM5N21AnZpFIHH/jsIJPQ1Q7JpAj6WmpQnGVAbUBSopjgSwAcd4o9Cg==", "title"=>"something", "description"=>"desc of something\r\n", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "something"], ["description", "desc of something\r\n"], ["created_at", "2020-10-27 17:22:32.953997"], ["updated_at", "2020-10-27 17:22:32.953997"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 5ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/posts/4" for ::1 at 2020-10-27 13:22:32 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 14ms (Views: 9.6ms | ActiveRecord: 0.2ms)
+
+
